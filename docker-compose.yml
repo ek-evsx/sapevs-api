@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  api:
+    container_name: sapevs-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    network_mode: host
+    volumes:
+      - ./:/app
+    ports:
+      - 5657:5657
+    depends_on:
+      - postgres
+  postgres:
+    container_name: sapevs-postgres
+    image: postgres:latest
+    restart: always
+    network_mode: host
+    ports:
+      - 5432:5432
+    volumes:
+      - /tmp/docker_volumes/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: evs-admin
+      POSTGRES_PASSWORD: super-secure-password
+      POSTGRES_DB: sapevs

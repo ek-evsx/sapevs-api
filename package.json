@@ -1,0 +1,27 @@
+{
+  "name": "sapevs-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "development": "npm run lint && node --inspect=0.0.0.0:9229 server.js",
+    "dev": "nodemon --exec npm run development",
+    "start": "node .",
+    "migration:create": "sequelize-cli migration:generate --name migration-skeleton",
+    "migration:up": "NODE_PATH=./ sequelize-cli db:migrate",
+    "migration:undo": "NODE_PATH=./ sequelize-cli db:migrate:undo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EugeneKoleda/sapevs-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EugeneKoleda/sapevs-api/issues"
+  },
+  "homepage": "https://github.com/EugeneKoleda/sapevs-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
