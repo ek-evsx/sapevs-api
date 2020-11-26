@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "development": "npm run lint && node --inspect=0.0.0.0:9229 server.js",
+    "development": "node --inspect=0.0.0.0:9229 server.js",
     "dev": "nodemon --exec npm run development",
     "start": "node .",
     "migration:create": "sequelize-cli migration:generate --name migration-skeleton",
     "migration:up": "NODE_PATH=./ sequelize-cli db:migrate",
-    "migration:undo": "NODE_PATH=./ sequelize-cli db:migrate:undo"
+    "migration:undo": "NODE_PATH=./ sequelize-cli db:migrate:undo",
+    "seed:generate": "MIGRATION=true NODE_PATH=./ sequelize-cli seed:generate --name seeder-name"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,16 @@
   },
   "homepage": "https://github.com/EugeneKoleda/sapevs-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "app-module-path": "^2.2.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "path": "^0.12.7",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "uuid": "^8.3.1"
   }
 }
